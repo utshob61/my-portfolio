@@ -23,8 +23,7 @@ export default function Certifications() {
                 <Award size={32} />
               </div>
               
-              <h3 className="text-xl font-bold font-display mb-2">{cert.title}</h3>
-              <p className="text-foreground/50 text-sm mb-6">{cert.provider}</p>
+              <h3 className="text-xl font-bold font-display mb-6">{cert.title}</h3>
               
               <a
                 href={cert.url}
