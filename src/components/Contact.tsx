@@ -4,8 +4,7 @@ import { Send, MapPin, Phone, Mail } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 import SectionHeading from './SectionHeading';
 import { personalInfo } from '@/src/data/portfolio';
-import { db, serverTimestamp, handleFirestoreError, OperationType } from '@/src/lib/firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { submitContactMessage } from '../lib/firebaseServices';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -22,26 +21,23 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
-    
-    const path = 'messages';
+
     try {
-      await addDoc(collection(db, path), {
+      await submitContactMessage({
         ...formData,
-        createdAt: serverTimestamp()
       });
       setIsSent(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
       setTimeout(() => setIsSent(false), 5000);
     } catch (err) {
-      setError("Failed to send message. Please try again.");
-      handleFirestoreError(err, OperationType.CREATE, path);
+      setError('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="scroll-mt-24 py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <SectionHeading title="Let's Connect" subtitle="Get in Touch" />
 
