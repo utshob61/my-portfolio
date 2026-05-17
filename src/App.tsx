@@ -8,12 +8,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ScrollProgress from './components/ScrollProgress';
 import CustomCursor from './components/CustomCursor';
 import Footer from './components/Footer';
+import Admin from './components/Admin';
 
 // Lazy load non-critical sections for performance
 const About = lazy(() => import('./components/About'));
@@ -24,15 +25,10 @@ const Experience = lazy(() => import('./components/Experience'));
 const Certifications = lazy(() => import('./components/Certifications'));
 const Contact = lazy(() => import('./components/Contact'));
 
-export default function App() {
+function HomePage() {
   return (
-    <main className="relative min-h-screen bg-background text-foreground selection:bg-primary-500/30 selection:text-primary-200">
-      <CustomCursor />
-      <ScrollProgress />
-      <Navbar />
-      
+    <>
       <Hero />
-      
       <Suspense fallback={<div className="h-20 flex items-center justify-center opacity-20">Loading section...</div>}>
         <About />
         <Skills />
@@ -42,6 +38,30 @@ export default function App() {
         <Certifications />
         <Contact />
       </Suspense>
+    </>
+  );
+}
+
+export default function App() {
+  const [view, setView] = useState<'home' | 'admin'>('home');
+
+  useEffect(() => {
+    const updateView = () => {
+      setView(window.location.hash === '#admin' ? 'admin' : 'home');
+    };
+
+    updateView();
+    window.addEventListener('hashchange', updateView);
+    return () => window.removeEventListener('hashchange', updateView);
+  }, []);
+
+  return (
+    <main className="relative min-h-screen bg-background text-foreground selection:bg-primary-500/30 selection:text-primary-200">
+      <CustomCursor />
+      <ScrollProgress />
+      <Navbar />
+
+      {view === 'admin' ? <Admin /> : <HomePage />}
 
       <Footer />
       

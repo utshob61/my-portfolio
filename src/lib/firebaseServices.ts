@@ -31,3 +31,10 @@ export async function getUserMessages() {
   const snapshot = await getDocs(q);
   return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as DocumentData));
 }
+
+export async function getMessages() {
+  const messagesRef = collection(db, 'messages');
+  const q = query(messagesRef);
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as DocumentData));
+}
