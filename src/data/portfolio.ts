@@ -142,19 +142,16 @@ export const experience = [
 export const certifications = [
   {
     title: "Google Data Analytics",
-    provider: "Coursera / Google",
     icon: Github, // Using generic icons for now
     url: "#"
   },
   {
     title: "Flutter Development Bootcamp",
-    provider: "Udemy",
     icon: Smartphone,
     url: "#"
   },
   {
     title: "Machine Learning Specialization",
-    provider: "Stanford / DeepLearning.AI",
     icon: Cpu,
     url: "#"
   }
