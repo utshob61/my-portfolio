@@ -1,4 +1,4 @@
-# Orgho Kanti Sarker Utshob - Premium Portfolio
+# Orgho Utshob Portfolio
 
 A modern, high-end personal portfolio built for a Software Engineer specializing in AI, Flutter, and Graphic Design.
 
