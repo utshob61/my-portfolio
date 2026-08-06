@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { FileText, ArrowRight, MousePointer2 } from 'lucide-react';
-import { personalInfo } from '@/src/data/portfolio';
+import { personalInfo } from '../data/portfolio';
 import TypeWriter from './TypeWriter';
 
 const BackgroundElements = () => {
@@ -26,7 +26,7 @@ export default function Hero() {
            className="mb-6"
         >
           <span className="text-[10px] font-bold tracking-[0.3em] text-foreground/40 uppercase inline-block mb-6">
-            Software Engineer & AI Specialist
+            Backend Engineer & Data Infrastructure Specialist
           </span>
           <h1 className="text-5xl md:text-8xl font-display font-light tracking-tight mb-6">
             <span className="text-gradient font-bold">{personalInfo.name}</span>
@@ -52,6 +52,7 @@ export default function Hero() {
           </a>
           <a
             href="/resume.pdf"
+            download="Orgho_Utshob_CV.pdf"
             className="px-8 py-4 glass hover:bg-white/10 text-white rounded-2xl font-bold transition-all flex items-center gap-2"
           >
             <FileText size={20} />

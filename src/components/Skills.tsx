@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import SectionHeading from './SectionHeading';
-import { skills } from '@/src/data/portfolio';
+import { skills } from '../data/portfolio';
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState(skills[0].category);

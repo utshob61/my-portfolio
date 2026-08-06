@@ -1,36 +1,44 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, MapPin, Phone, Mail } from 'lucide-react';
-import { cn } from '@/src/lib/utils';
+import { cn } from '../lib/utils';
 import SectionHeading from './SectionHeading';
-import { personalInfo } from '@/src/data/portfolio';
-import { submitContactMessage } from '../lib/firebaseServices';
+import { personalInfo } from '../data/portfolio';
+
+// You can use a service like Formspree for free (50 submissions/mo)
+// or simply use a Google Form URL as the action.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/meajokoz"; // Note: User should replace this with their own ID
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
 
+    const formData = new FormData(e.currentTarget);
+
     try {
-      await submitContactMessage({
-        ...formData,
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
-      setIsSent(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setIsSent(false), 5000);
+
+      if (response.ok) {
+        setIsSent(true);
+        e.currentTarget.reset();
+        setTimeout(() => setIsSent(false), 5000);
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
     } catch (err) {
-      setError('Failed to send message. Please try again.');
+      setError('Failed to send message. Please check your connection.');
     } finally {
       setIsSubmitting(false);
     }
@@ -94,10 +102,9 @@ export default function Contact() {
                   <label className="text-xs font-bold uppercase tracking-widest text-foreground/50 ml-4">Name</label>
                   <input
                     type="text"
+                    name="name"
                     required
-                    value={formData.name}
-                    onChange={e => setFormData({...formData, name: e.target.value})}
-                    placeholder="John Doe"
+                    placeholder=""
                     className="w-full bg-white/5 border border-white/10 p-4 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-white/10"
                   />
                 </div>
@@ -105,10 +112,9 @@ export default function Contact() {
                   <label className="text-xs font-bold uppercase tracking-widest text-foreground/50 ml-4">Email</label>
                   <input
                     type="email"
+                    name="email"
                     required
-                    value={formData.email}
-                    onChange={e => setFormData({...formData, email: e.target.value})}
-                    placeholder="john@example.com"
+                    placeholder=""
                     className="w-full bg-white/5 border border-white/10 p-4 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-white/10"
                   />
                 </div>
@@ -124,10 +130,9 @@ export default function Contact() {
                 <label className="text-xs font-bold uppercase tracking-widest text-foreground/50 ml-4">Subject</label>
                 <input
                   type="text"
+                  name="subject"
                   required
-                  value={formData.subject}
-                  onChange={e => setFormData({...formData, subject: e.target.value})}
-                  placeholder="Inquiry for a project"
+                  placeholder=""
                   className="w-full bg-white/5 border border-white/10 p-4 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-white/10"
                 />
               </div>
@@ -136,10 +141,9 @@ export default function Contact() {
                 <label className="text-xs font-bold uppercase tracking-widest text-foreground/50 ml-4">Message</label>
                 <textarea
                   rows={4}
+                  name="message"
                   required
-                  value={formData.message}
-                  onChange={e => setFormData({...formData, message: e.target.value})}
-                  placeholder="Tell me more about your project..."
+                  placeholder=""
                   className="w-full bg-white/5 border border-white/10 p-4 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all resize-none placeholder:text-white/10"
                 />
               </div>

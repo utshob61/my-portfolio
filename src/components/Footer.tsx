@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { ArrowUp } from 'lucide-react';
-import { personalInfo } from '@/src/data/portfolio';
+import { personalInfo } from '../data/portfolio';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:justify-between gap-8">
         <div>
           <h2 className="text-2xl font-display font-bold mb-2">OR<span className="text-primary-500">GHO.</span></h2>
-          <p className="text-foreground/40 text-sm font-medium">Crafting the future of software and AI.</p>
+          <p className="text-foreground/40 text-sm font-medium">Building scalable backend and data infrastructure.</p>
         </div>
         
         <div className="flex gap-4">

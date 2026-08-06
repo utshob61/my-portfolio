@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import SectionHeading from './SectionHeading';
-import { services } from '@/src/data/portfolio';
+import { services } from '../data/portfolio';
 
 export default function Services() {
   return (

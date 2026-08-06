@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import SectionHeading from './SectionHeading';
-import { personalInfo } from '@/src/data/portfolio';
+import { personalInfo } from '../data/portfolio';
 import Counter from './Counter';
 
 export default function About() {
@@ -20,9 +20,9 @@ export default function About() {
               viewport={{ once: true }}
               className="text-lg text-foreground/70 leading-relaxed font-light"
             >
-              Hi, I'm <span className="text-white font-medium">Orgho</span>. I'm a Software Engineering graduate from <span className="text-white">Daffodil International University</span> who genuinely believes that good code should feel like poetry—stable, efficient, and intentional. 
+              Hi, I'm <span className="text-white font-medium">Orgho</span>. I'm a Software Engineering graduate from <span className="text-white">Daffodil International University</span> with a focus on backend and data engineering. I believe in building systems that are not just functional, but scalable, reliable, and well-architected.
               <br /><br />
-              My playground is the intersection where <span className="text-white font-semibold">Flutter's</span> fluidity meets the raw potential of <span className="text-white font-semibold">Artificial Intelligence</span>. Whether I'm building a mobile interface that reacts to a user's touch or training a model to understand the world through a camera lens, I focus on the human impact of every line I write.
+              My expertise lies in the intersection of <span className="text-white font-semibold">FastAPI</span>, <span className="text-white font-semibold">PostgreSQL</span>, and <span className="text-white font-semibold">Data Engineering</span>. Whether I'm designing complex ETL pipelines or optimizing database schemas, I focus on building the robust infrastructure that powers modern applications.
             </motion.p>
 
             <motion.div 
@@ -52,7 +52,7 @@ export default function About() {
                  Specialized Interests
                </h4>
                <div className="flex flex-wrap gap-2">
-                 {['Computer Vision', 'Deep Learning', 'Flutter 3.x', 'YOLO / CNN', 'Agile Methodologies'].map(tech => (
+                 {['FastAPI', 'PostgreSQL', 'Docker', 'ETL Pipelines', 'SQLAlchemy', 'Linux Development', 'Agile Methodologies'].map(tech => (
                    <span key={tech} className="px-4 py-2 glass rounded-full text-xs font-semibold text-foreground/80">
                       {tech}
                    </span>

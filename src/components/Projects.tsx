@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ExternalLink, Github } from 'lucide-react';
 import SectionHeading from './SectionHeading';
-import { projects } from '@/src/data/portfolio';
+import { projects } from '../data/portfolio';
 
-const categories = ["All", "AI", "Mobile", "Web", "Design"];
+const categories = ["All", "Web", "Mobile", "Data"];
 
 export default function Projects() {
   const [filter, setFilter] = useState("All");
@@ -57,12 +57,26 @@ export default function Projects() {
                   
                   {/* Overlay for links */}
                   <div className="absolute inset-0 bg-primary-900/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                     <a href={project.github} className="p-4 bg-white/10 hover:bg-white/20 rounded-2xl transition-all hover:scale-110">
+                     <a
+                       href={project.github}
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="p-4 bg-white/10 hover:bg-white/20 rounded-2xl transition-all hover:scale-110"
+                       title="View GitHub"
+                     >
                         <Github className="text-white" />
                      </a>
-                     <a href={project.demo} className="p-4 bg-primary-500 rounded-2xl transition-all hover:scale-110 hover:shadow-xl">
-                        <ExternalLink className="text-white" />
-                     </a>
+                     {project.demo !== '#' && (
+                       <a
+                         href={project.demo}
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         className="p-4 bg-primary-500 rounded-2xl transition-all hover:scale-110 hover:shadow-xl"
+                         title="Live Demo"
+                       >
+                          <ExternalLink className="text-white" />
+                       </a>
+                     )}
                   </div>
                 </div>
                 
@@ -83,9 +97,16 @@ export default function Projects() {
                   
                   <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
                      <span className="text-xs font-semibold uppercase tracking-widest text-foreground/40">{project.category}</span>
-                     <motion.div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ExternalLink size={14} className="text-primary-400" />
-                     </motion.div>
+                     <div className="flex gap-4">
+                       <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-white transition-colors">
+                         <Github size={18} />
+                       </a>
+                       {project.demo !== '#' && (
+                         <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary-400 transition-colors">
+                           <ExternalLink size={18} />
+                         </a>
+                       )}
+                     </div>
                   </div>
                 </div>
               </motion.div>

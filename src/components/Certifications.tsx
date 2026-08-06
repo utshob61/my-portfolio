@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { Award, ExternalLink } from 'lucide-react';
 import SectionHeading from './SectionHeading';
-import { certifications } from '@/src/data/portfolio';
+import { certifications } from '../data/portfolio';
 
 export default function Certifications() {
   return (

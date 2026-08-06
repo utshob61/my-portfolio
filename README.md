@@ -1,28 +1,29 @@
 # Orgho Utshob Portfolio
 
-A modern, high-end personal portfolio built for a Software Engineer specializing in AI, Flutter, and Graphic Design.
+A professional, high-performance personal portfolio for a **Backend & Data Engineer**. This project showcases modern architectural patterns, scalable data pipelines, and robust backend systems.
 
-## 🚀 Features
-- **Premium Design**: Minimalist and futuristic aesthetic inspired by top-tier tech portfolios.
-- **Glassmorphism**: Elegant blur effects and semi-transparent layers.
-- **Micro-animations**: Powered by Framer Motion for smooth entrances, hover effects, and transitions.
-- **Responsive**: Fully optimized for mobile, tablet, and desktop views.
-- **SEO Optimized**: Pre-configured meta tags for search engine visibility.
-- **Performance**: Lazy loading for non-critical sections and optimized asset handling.
-- **Custom Cursor**: Interactive cursor that reacts to links and buttons.
+## 🚀 Key Features
+- **Backend Focused**: Highlighting expertise in FastAPI, Django, and PostgreSQL.
+- **Data Engineering**: Showcasing ETL pipelines and data infrastructure projects.
+- **Premium Design**: Minimalist and futuristic aesthetic with Glassmorphism.
+- **Micro-animations**: Smooth, intentional transitions powered by Framer Motion.
+- **Contact Integration**: Live form submission handled via Formspree for direct email delivery.
+- **CV Download**: Integrated direct download for a professional resume.
+- **Performance Optimized**: Optimized bundle size (~380kB initial load) and asset handling.
 
 ## 🛠️ Tech Stack
-- **Frontend**: React 19 + Vite
+- **Languages**: Python, SQL, Java, Dart, C
+- **Frameworks**: FastAPI, Django, React 19, Flutter
+- **Data & Infra**: PostgreSQL, Docker, SQLAlchemy, Pandas, ETL
 - **Styling**: Tailwind CSS 4
 - **Animations**: Framer Motion (motion/react)
 - **Icons**: Lucide React
-- **Typography**: Inter (UI), Outfit (Heading), Space Grotesk (Navigation)
 
 ## 📦 Project Structure
-- `src/components/`: Reusable UI components.
-- `src/data/`: Portfolio content and metadata.
-- `src/lib/`: Utility functions (e.g., tailwind-merge).
-- `src/index.css`: Global styles and theme configuration.
+- `src/components/`: Modular UI components (Hero, About, Projects, etc.).
+- `src/data/`: Centralized portfolio content and configuration in `portfolio.ts`.
+- `src/lib/`: Utility functions and service integrations.
+- `public/`: Static assets including `resume.pdf`.
 
 ## 🏁 Getting Started
 
@@ -42,12 +43,12 @@ npm run build
 ```
 
 ## 🌐 Deployment
-This project is production-ready and can be easily deployed to platforms like **Vercel**, **Netlify**, or **GitHub Pages**.
+Optimized for deployment on **Vercel**, **Netlify**, or **GitHub Pages**.
 
-1. Connect your GitHub repository to the hosting platform.
-2. Set the build command to `npm run build`.
-3. Set the output directory to `dist`.
-4. Add your domain and deploy!
+1. Connect your repository.
+2. Set build command: `npm run build`.
+3. Set output directory: `dist`.
+4. Add your domain and it's live!
 
 ## 📄 License
 This project is licensed under the Apache-2.0 License.

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
-import { cn } from '@/src/lib/utils';
-import { personalInfo } from '@/src/data/portfolio';
+import { cn } from '../lib/utils';
+import { personalInfo } from '../data/portfolio';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -12,7 +12,6 @@ const navLinks = [
   { name: 'Services', href: '#services' },
   { name: 'Experience', href: '#experience' },
   { name: 'Contact', href: '#contact' },
-  { name: 'Admin', href: '#admin' },
 ];
 
 export default function Navbar() {
