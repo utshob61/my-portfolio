@@ -51,7 +51,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
           </a>
           <a
-            href="/resume.pdf"
+            href="resume.pdf"
             download="Orgho_Utshob_CV.pdf"
             className="px-8 py-4 glass hover:bg-white/10 text-white rounded-2xl font-bold transition-all flex items-center gap-2"
           >
